@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div id="login-main">
+        <div class="form" id="Login-form">
+            <h3>Login Now</h3>
+            <input type="text" placeholder="enter usernaame" id="Username">
+            <br>
+            <input type="text" placeholder="enter password" id="Password">
+            <br>
+            <button onclick="LoginPage()">Login</button>
+            <button onclick="Singupjump()">Singup</button>
+            <button onclick="Viewpage()">Web View</button>
+        </div>
+    </div>
+
+    <script>
+
+
+
+
+ 
+        async function LoginPage() {
+            let Userdata = document.getElementById("Username").value;
+            let PasswordData = document.getElementById("Password").value;
+
+            let apiurl = await fetch('http://localhost:3000/login')
+            let convertapi = await apiurl.json();
+            let Findapi = convertapi.find((item) => item.username == Userdata && item.password == PasswordData);
+            if (Findapi) {
+                alert("successfull login");
+                localStorage.setItem("user",Findapi.id); 
+                setTimeout(()=>{
+                    window.location.href = "./home.html"
+                },3000)  
+                // localStorage me user aik key h jo kuch bhi de skte h ; 
+            } else {
+                alert("cannot match the acoount,please try again")
+            }
+        }
+    
+
+        function Singupjump(){
+         setTimeout(()=>{
+            window.location.href = "./singup.html";
+         },1000)
+        }
+        function Viewpage(){
+         setTimeout(()=>{
+            window.location.href = "./home.html";
+         },2000)
+        }
+
+
+
+    </script>
+</body>
+
+</html>
