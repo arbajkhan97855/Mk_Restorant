@@ -146,7 +146,7 @@ const Product = [
         productname: "Burger",
         productdetail: "Lorem ipsum dolor sit amet con",
         price: "80",
-        img: "./img/launch2.jpeg",
+        img: "./img/launch1.jpeg",
         category: "launch"
     },
     {
@@ -235,23 +235,23 @@ const Product = [
         productname: "Mix French Fries",
         productdetail: "Lorem ipsum dolor sit amet con",
         price: "200",
-        img: "./img/menu6.jpeg",
+        img: "./img/menu-6.jpg",
         category: "dinner"
     },
     {
         id: "19",
-        productname: "not name",
+        productname: "Panner Momose",
         productdetail: "Lorem ipsum dolor sit amet con",
-        price: "80",
-        img: "./img/menu6.jpeg",
-        category: "dinner"
+        price: "50",
+        img: "./img/momos.jpg",
+        category: "breackfast"
     },
     {
         id: "20",
-        productname: "not name",
+        productname: "Butter Paneer",
         productdetail: "Lorem ipsum dolor sit amet con",
-        price: "80",
-        img: "./img/menu6.jpeg",
+        price: "150",
+        img: "./img/menu-9.jpg",
         category: "dinner"
     },
 ]
@@ -259,12 +259,14 @@ function MenuData() {
     let a = document.getElementById('menupage-p')
     console.log(Product)
     a.innerHTML = Product.map((item) => {
+        
         return (
-      ` <div class="col-5 col-sm-4 col-md-2 col-lg-2  mx-md-2 mx-0  my-md-1" id="menupage-div">
-                <img src='${item.productimg}' class="img-fluid">
-                <h4>${item.productname}</h4>
-                <h3>$${item.price}</h3>
-        </div>
+            `
+               <div class="col-5 col-sm-4 col-md-2 col-lg-2  mx-md-2 mx-0  my-md-1 pt-1" id="menupage-div">
+                <img src=${item.img} height="70vh" width="100px" >
+                <h5>${item.productname}</h5>
+                <h5>₹${item.price}</h5>
+                  </div>
        `
         )
       })
