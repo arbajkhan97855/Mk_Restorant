@@ -82,16 +82,16 @@
                 <h1 class="text-md-start">Book A Table Online</h1>
                 <div class="row" id="reservation-input">
                     <input type="text" placeholder="Your Name"
-                        class="col-12 col-sm-12 col-md-5 col-lg-5 mx-md-1 p-2 mt-3">
+                        class="col-12 col-sm-12 col-md-5 col-lg-5 mx-md-1 p-2 mt-3" id="bk-name">
                     <input type="text" placeholder="Your Email"
-                        class="col-12 col-sm-12 col-md-5 col-lg-6 mx-md-1 p-2 mt-3">
-                    <input type="datetime-local" placeholder="Reservation date"
-                        class="col-12 col-sm-12 col-md-5 col-lg-5 mx-md-1 p-2 mt-3">
+                        class="col-12 col-sm-12 col-md-5 col-lg-6 mx-md-1 p-2 mt-3" id="bk-email">
+                    <input type="date" placeholder="Reservation date"
+                        class="col-12 col-sm-12 col-md-5 col-lg-5 mx-md-1 p-2 mt-3" id="bk-date">
                     <input type="number" placeholder="Peoples Number"
-                        class="col-12 col-sm-12 col-md-5 col-lg-6 mx-md-1 p-2 mt-3">
+                        class="col-12 col-sm-12 col-md-5 col-lg-6 mx-md-1 p-2 mt-3" id="bk-number">
                     <textarea placeholder="Special Request"
-                        class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3 "></textarea>
-                    <button class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3">Book Now</button>
+                        class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3 " id="bk-msg"></textarea>
+                    <button class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3" onclick="Bookingdata()">Book Now</button>
                 </div>
             </div>
         </div>
@@ -167,7 +167,27 @@
 </div>
 
 <script src="./home.js"></script>
+<script>
+  async function Bookingdata(){
+        let name = document.getElementById("bk-name").value
+        let email = document.getElementById("bk-email").value
+        let date = document.getElementById("bk-date").value
+        let number = document.getElementById("bk-number").value
+        let msg = document.getElementById("bk-msg").value
 
+            let apiurl = await fetch("https://node-live-three.vercel.app/booking",{
+            method:"POST",
+            body:JSON.stringify({"username":name,"email":email,"time":date,"number":number,"msg":msg}),
+            headers:{
+                        "Content-Type": "application/json",
+                    }
+        }).then(()=>{
+            alert("succefull booking table")
+        }).catch(()=>{
+            alert("Cann`t succefull book table")
+        })
+    }
+</script>
 
 </body>
 </html>

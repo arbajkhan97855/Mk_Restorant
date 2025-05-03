@@ -69,11 +69,11 @@ async function Profilepage() {
     const ap = document.getElementById("hs");
     ap.style.display = "block";
     let USER = localStorage.getItem("user");
-    let apiurl = await fetch(`http://localhost:3000/login/${USER}`)
+    let apiurl = await fetch(`https://node-live-three.vercel.app/user/${USER}`)
     let convertapi = await apiurl.json();
 
     let ad = document.getElementById("hp")
-    ad.innerHTML = `<div id="cs"><span>id : ${convertapi.id}</span><i class="fa-solid fa-x" onclick="Profileout()"></i></div>
+    ad.innerHTML = `<div id="cs"><span>id : ${convertapi._id}</span><i class="fa-solid fa-x" onclick="Profileout()"></i></div>
                             <img src="${convertapi.profileimg}" alt="loadiing.." height="100px" width="100px"><br>
        <h5>Employer Name : ${convertapi.username}</h5>
        <h6>Employer Email : ${convertapi.useremail}</h6>

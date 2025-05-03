@@ -16,7 +16,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.55); /* dark overlay */
+    background: rgba(0, 0, 0, 0.55);
     z-index: -1;
 }
 
@@ -36,7 +36,7 @@ body::before {
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 400px;
+    max-width: 430px;
     text-align: center;
     color: #fff;
 }
@@ -49,11 +49,10 @@ body::before {
     letter-spacing: 1px;
 }
 
-#Login-form input[type="text"],
-#Login-form input[type="password"] {
+#Login-form input {
     width: 100%;
     padding: 14px 16px;
-    margin: 12px 0 20px;
+    margin: 12px 0;
     border: none;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.2);
@@ -74,37 +73,22 @@ body::before {
 #Login-form button {
     width: 100%;
     padding: 12px;
-    margin-bottom: 14px;
+    margin-top: 15px;
     border: none;
     border-radius: 10px;
     font-weight: bold;
     font-size: 16px;
-    transition: all 0.3s ease;
     cursor: pointer;
-}
-
-.btn-login {
-    background-color: #e67e22;
+    transition: all 0.3s ease;
     color: white;
 }
 
-.btn-signup {
-    background-color: #6c757d;
-    color: white;
-}
-
-.btn-view {
-    background-color: #3498db;
-    color: white;
-}
 #Login-form button:first-of-type {
     background-color: #28a745; /* Signup button - green */
-    color: white;
 }
 
 #Login-form button:last-of-type {
     background-color: #007bff; /* Login button - blue */
-    color: white;
 }
 
 #Login-form button:hover {

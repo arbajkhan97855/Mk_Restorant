@@ -20,7 +20,6 @@
             <br>
             <button onclick="LoginPage()">Login</button>
             <button onclick="Singupjump()">Singup</button>
-            <button onclick="Viewpage()">Web View</button>
         </div>
     </div>
 
@@ -34,12 +33,14 @@
             let Userdata = document.getElementById("Username").value;
             let PasswordData = document.getElementById("Password").value;
 
-            let apiurl = await fetch('http://localhost:3000/login')
-            let convertapi = await apiurl.json();
+            let apiurl = await fetch('https://node-live-three.vercel.app/user')
+            let convert = await apiurl.json();
+            let convertapi = convert.login;
+
             let Findapi = convertapi.find((item) => item.username == Userdata && item.password == PasswordData);
             if (Findapi) {
                 alert("successfull login");
-                localStorage.setItem("user",Findapi.id); 
+                localStorage.setItem("user",Findapi._id); 
                 setTimeout(()=>{
                     window.location.href = "./home.html"
                 },3000)  
@@ -55,11 +56,7 @@
             window.location.href = "./singup.html";
          },1000)
         }
-        function Viewpage(){
-         setTimeout(()=>{
-            window.location.href = "./home.html";
-         },2000)
-        }
+      
 
 
 

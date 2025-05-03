@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./edit.css">
 </head>
 
 <body>
@@ -43,16 +43,20 @@
   
             let USER = localStorage.getItem("user");
 // api singal data edit
-            let usersdata = await fetch(`http://localhost:3000/login/${USER}`)
+            let usersdata = await fetch(`https://node-live-three.vercel.app/user/${USER}`)
             let allusers = await usersdata.json()
 // api singal data edit
             console.log(allusers)
 
             if(MobileData.length == 10 || MobileData.length == 0){
-                let apiurl = await fetch(`http://localhost:3000/login/${USER}`,{
+                let apiurl = await fetch(`https://node-live-three.vercel.app/user/${USER}`,{
                 method : "PATCH",
-                body : JSON.stringify({"username" : Userdata.length>0 ? Userdata : allusers.username , "password" : PasswordData.length>0 ? PasswordData : allusers.password, "mobile" : MobileData.length>0 ?  MobileData: allusers.mobile, "useremail" : EmailData.length>0 ? EmailData : allusers.useremail, "profileimg" : ProfileimgData.length>0 ? ProfileimgData : allusers.profileimg, "DOB" : DOBData.length>0 ? DOBData : allusers.DOB}
-              )
+                body : JSON.stringify({"username" : Userdata.length>0 ? Userdata : allusers.username , "password" : PasswordData.length>0 ? PasswordData : allusers.password, "mobile" : MobileData.length>0 ?  MobileData: allusers.mobile, "useremail" : EmailData.length>0 ? EmailData : allusers.useremail, "profileimg" : ProfileimgData.length>0 ? ProfileimgData : allusers.profileimg, "DOB" : DOBData.length>0 ? DOBData : allusers.DOB}          
+              ),
+              headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Headers": "Content-Type",
+                    }
             }).then(()=>{
                 alert("succefuuly edit");
             }).catch(()=>{
