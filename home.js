@@ -257,7 +257,6 @@ const Product = [
 ]
 function MenuData() {
     let a = document.getElementById('menupage-p')
-    console.log(Product)
     a.innerHTML = Product.map((item) => {
         
         return (
