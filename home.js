@@ -24,30 +24,30 @@ function PARAR() {
 };
 // Counting increase end
 // testimonial hide/show
-function Breackfast() {
-    let testimonial1 = document.getElementById("testimonial-top1");
-    testimonial1.style.display = "block";
-    let testimonial2 = document.getElementById("testimonial-top2");
-    testimonial2.style.display = "none";
-    let testimonial3 = document.getElementById("testimonial-top3");
-    testimonial3.style.display = "none";
-}
-function Launch() {
-    let testimonial1 = document.getElementById("testimonial-top1");
-    testimonial1.style.display = "none";
-    let testimonial2 = document.getElementById("testimonial-top2");
-    testimonial2.style.display = "block";
-    let testimonial3 = document.getElementById("testimonial-top3");
-    testimonial3.style.display = "none";
-}
-function Dinner() {
-    let testimonial1 = document.getElementById("testimonial-top1");
-    testimonial1.style.display = "none";
-    let testimonial2 = document.getElementById("testimonial-top2");
-    testimonial2.style.display = "none";
-    let testimonial3 = document.getElementById("testimonial-top3");
-    testimonial3.style.display = "block";
-}
+// function Breackfast() {
+//     let testimonial1 = document.getElementById("testimonial-top1");
+//     testimonial1.style.display = "block";
+//     let testimonial2 = document.getElementById("testimonial-top2");
+//     testimonial2.style.display = "none";
+//     let testimonial3 = document.getElementById("testimonial-top3");
+//     testimonial3.style.display = "none";
+// }
+// function Launch() {
+//     let testimonial1 = document.getElementById("testimonial-top1");
+//     testimonial1.style.display = "none";
+//     let testimonial2 = document.getElementById("testimonial-top2");
+//     testimonial2.style.display = "block";
+//     let testimonial3 = document.getElementById("testimonial-top3");
+//     testimonial3.style.display = "none";
+// }
+// function Dinner() {
+//     let testimonial1 = document.getElementById("testimonial-top1");
+//     testimonial1.style.display = "none";
+//     let testimonial2 = document.getElementById("testimonial-top2");
+//     testimonial2.style.display = "none";
+//     let testimonial3 = document.getElementById("testimonial-top3");
+//     testimonial3.style.display = "block";
+// }
 
 // TESTIMONIAL END
 // link page start
@@ -91,13 +91,13 @@ function Editjump() {
 }
 // profile js end
 
-const Product = [
-    {
-        id: "1",
-        productname: "Spice Mixture",
+let Product = [
+         {
+        id: "19",
+        productname: "Panner Momose",
         productdetail: "Lorem ipsum dolor sit amet con",
-        price: "40",
-        img: "https://www.archanaskitchen.com/images/archanaskitchen/1-Author/sibyl-archanaskitchen.com/Malvani_Fish_Curry_Recipe_.jpg",
+        price: "50",
+        img: "./img/momos.jpg",
         category: "dinner"
     },
     {
@@ -129,7 +129,7 @@ const Product = [
         productname: "Sandwhich",
         productdetail: "Lorem ipsum dolor sit amet con",
         price: "80",
-        productimg: "./img/breackfast5.jpeg",
+        img: "./img/breackfast5.jpeg",
         category: "breackfast"
     },
     {
@@ -140,7 +140,6 @@ const Product = [
         img: "./img/breackfast6.jpeg",
         category: "breackfast"
     },
-    //  lunch
     {
         id: "7",
         productname: "Burger",
@@ -189,7 +188,6 @@ const Product = [
         img: "./img/launch6.jpeg",
         category: "launch"
     },
-    //  dinner
     {
         id: "13",
         productname: "Chicken Burger",
@@ -238,30 +236,13 @@ const Product = [
         img: "./img/menu-6.jpg",
         category: "dinner"
     },
-    {
-        id: "19",
-        productname: "Panner Momose",
-        productdetail: "Lorem ipsum dolor sit amet con",
-        price: "50",
-        img: "./img/momos.jpg",
-        category: "breackfast"
-    },
-    {
-        id: "20",
-        productname: "Butter Paneer",
-        productdetail: "Lorem ipsum dolor sit amet con",
-        price: "150",
-        img: "./img/menu-9.jpg",
-        category: "dinner"
-    },
 ]
 function MenuData() {
-    let a = document.getElementById('menupage-p')
-    a.innerHTML = Product.map((item) => {
-        
-        return (
+    const ar = document.getElementById('menupage-p')
+    ar.innerHTML = Product.map((item) => {
+            return (
             `
-               <div class="col-5 col-sm-4 col-md-2 col-lg-2  mx-md-2 mx-0  my-md-1 pt-1" id="menupage-div">
+               <div class="col-5 col-sm-4 col-md-2 col-lg-2  mx-md-2 mx-0  my-md-1 pt-1 menupage-div">
                 <img src=${item.img} height="70vh" width="100px" >
                 <h5>${item.productname}</h5>
                 <h5>₹${item.price}</h5>
@@ -270,15 +251,58 @@ function MenuData() {
         )
       })
 }
-MenuData()
-
-function Menupage(e){
-    setTimeout(()=>{
-     window.location.href = e
-    },1000)
+window.addEventListener("DOMContentLoaded", () => {
+    MenuData();
+});
+function RenderProductsDefaultStart() {
+    const ara = document.getElementById('data-menu');  
+    const defaultProducts = Product.slice(0, 6); 
+    ara.innerHTML = defaultProducts.map(item => {
+        return `
+            <div class="row col-12 col-sm-12 col-md-12 col-lg-6 testimonial-item">
+                <img src=${item.img} class="img-fluid col-2 col-sm-2 col-md-2 col-lg-2" style="width: 110px;">
+                <div class="testimonial-name col-8 col-sm-9 col-md-9 col-lg-9">
+                    <div class="testimonial-head">
+                        <h4>${item.productname}</h4>
+                        <h3>₹${item.price}</h3>
+                    </div>
+                    <hr>
+                    <p>${item.productdetail}</p>
+                </div>
+            </div>
+        `;
+    }).join('');
 }
 
-//  Filterbg("dinner");
+RenderProductsDefaultStart();
 
+function FilterByCategory(category) {
+    let ara = document.getElementById('data-menu');
+    const filtered = Product.filter(item => item.category === category.toLowerCase());
+
+    if(filtered.length>0){
+         ara.innerHTML = filtered.map((item) => {
+        return `
+            <div class="row col-12 col-sm-12 col-md-12 col-lg-6 testimonial-item">
+                <img src=${item.img} class="img-fluid col-2 col-sm-2 col-md-2 col-lg-2" style="width: 110px;">
+                <div class="testimonial-name col-8 col-sm-9 col-md-9 col-lg-9">
+                    <div class="testimonial-head">
+                        <h4>${item.productname}</h4>
+                        <h3>₹${item.price}</h3>
+                    </div>
+                    <hr>
+                    <p>${item.productdetail}</p>
+                </div>
+            </div>
+        `;
+    }).join('');
+    }   
+}
+
+
+
+
+//  Filterbg("dinner");
+// testimonial-topp
 
 

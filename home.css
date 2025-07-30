@@ -336,7 +336,7 @@
     font-weight: bold;
 }
 #time-food{
-    margin-top: 4%;
+    margin-top: 2%;
     padding: 0px 12px;
     display: flex;
     justify-content: center;
@@ -398,16 +398,16 @@
     justify-content: center;
     align-items: center;
 }
-#menupage-p #menupage-div{
+#menupage-p .menupage-div{
    background-color: rgba(255, 255, 255, 0.884);
    border: 1px solid rgba(0, 0, 0, 0.205);
    text-align: center;
    height: 50%;
 }
-#menupage-div:hover{
+.menupage-div:hover{
     box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.336);
 }
-#menupage-div h4::first-letter{
+.menupage-div h4::first-letter{
     color: #FEA116;
     
 }
@@ -416,20 +416,12 @@
     border-radius: 15px;
 }
 /* testimonial start */
-#testimonial  #testimonial-top2{
-    display: none;
-}
-#testimonial  #testimonial-top1{
-    display: block;
-}
-#testimonial  #testimonial-top3{
-    display: none;
-}
-#testimonial div #testimonial-top{
+
+#testimonial  #data-menu{
     padding: 2% 3%;
 }
 @media screen and (max-width:400px) {
-    #testimonial div #testimonial-top{
+    #testimonial  #data-menu{
         padding: 2% 0%;
     }
 }
@@ -443,7 +435,7 @@
     color: #FEA116;
 }
 
-#testimonial-item{
+.testimonial-item{
     margin-top: 4px;
 }
 
