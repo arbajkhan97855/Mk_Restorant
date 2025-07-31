@@ -54,10 +54,11 @@
 
                 const response = await fetch('https://node-live-three.vercel.app/user', {
                     method: "POST",
-                    body: formData
+                    body: formData,
+
                 });
-                const data = await response.json(); // parse response as JSON /jab msg backend se lane ho
-                confirm(data.message);  // ye backend se aa rha h msg
+                const data = await response.text(); // parse response as JSON /jab msg backend se lane ho
+                confirm(data);  // ye backend se aa rha h msg
                 // confirm("suceeefully submit data"); // 👈 confirm me message dikh raha hai ye static 
 
             } catch (error) {
