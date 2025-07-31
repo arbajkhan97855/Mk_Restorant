@@ -21,11 +21,11 @@
             <br>
             <input type="number" placeholder="enter number" id="Number" name="form_number">
             <br>
-            <input type="text" placeholder="enter profileimg url" id="Profile">
-            <br>
             <input type="email" placeholder="enter email" id="Email" name="form_email">
             <br>
             <input type="date" placeholder="enter DOB" id="DOB" name="form_dob">
+            <br>
+            <input type="file" id="Profile" title="Profile-img">  
             <br>
             <button onclick="SingupPage()">Singup</button>
             <button onclick="Loginjump()">Login</button>
@@ -37,64 +37,36 @@
     let Userdata = document.getElementById("Username").value;
     let PasswordData = document.getElementById("Password").value;
     let MobileData = document.getElementById("Number").value;
-    let ProfileimgData = document.getElementById("Profile").value;
+    let ProfileimgData = document.getElementById("Profile").files[0];
     let EmailData = document.getElementById("Email").value;
     let DOBData = document.getElementById("DOB").value;
 
 //  hum backend se response msg lena ho to  try, catch use krenge
-//     if (PasswordData && MobileData.length === 10) {
-//             try {
-//                 const response = await fetch('http://localhost:5000/postdata', {
-//                     method: "POST",
-//                     headers: {
-//                         "Content-Type": "application/json"
-//                     },
-//                     body: JSON.stringify({
-//                         username: Userdata,
-//                         password: PasswordData,
-//                         mobile: MobileData,
-//                         useremail: EmailData,
-//                         profileimg: ProfileimgData,
-//                         DOB: DOBData
-//                     })
-//                 });
-// // 
-//                 const data = await response.json(); // parse response as JSON /jab msg backend se lane ho
-//                 confirm(data.message);  // ye backend se aa rha h msg
-//                 // confirm("suceeefully submit data"); // 👈 confirm me message dikh raha hai ye static 
+    if (PasswordData && MobileData.length === 10) {
+            try {
+            const formData = new FormData();
+            formData.append("username", Userdata);
+            formData.append("password", PasswordData);
+            formData.append("mobile", MobileData);
+            formData.append("useremail", EmailData);
+            formData.append("DOB", DOBData);
+            formData.append("profileimg", ProfileimgData);
 
-//             } catch (error) {
-//                 alert("Error: " + error.message);
-//             }
-//         } else {
-//             alert("Please fill password and valid 10-digit mobile number.");
-//         }
-
-
-        if (PasswordData && MobileData.length === 10) {
-            
                 const response = await fetch('https://node-live-three.vercel.app/user', {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        username: Userdata,
-                        password: PasswordData,
-                        mobile: MobileData,
-                        useremail: EmailData,
-                        profileimg: ProfileimgData,
-                        DOB: DOBData
-                    })
-                }).then(()=>{
-                   alert("succefully data")
-                }).catch(()=>{
-                    alert("not succefull")
+                    body: formData
                 });
-                
+                const data = await response.json(); // parse response as JSON /jab msg backend se lane ho
+                confirm(data.message);  // ye backend se aa rha h msg
+                // confirm("suceeefully submit data"); // 👈 confirm me message dikh raha hai ye static 
+
+            } catch (error) {
+                alert("Error: " + error.message);
+            }
         } else {
             alert("Please fill password and valid 10-digit mobile number.");
         }
+
 }
 
 
