@@ -57,8 +57,10 @@
                     body: formData,
 
                 });
-                const data = await response.text(); // parse response as JSON /jab msg backend se lane ho
-                confirm(data);  // ye backend se aa rha h msg
+                if(response.ok){
+                   confirm("succfull singup user ")
+                } // parse response as JSON /jab msg backend se lane ho
+                ;  // ye backend se aa rha h msg
                 // confirm("suceeefully submit data"); // 👈 confirm me message dikh raha hai ye static 
 
             } catch (error) {
