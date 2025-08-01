@@ -82,7 +82,7 @@
                     <div class="reservation-top text-center">
                         <h5 class="text-md-start">Reservation</h5>
                         <h1 class="text-md-start">Book A Table Online</h1>
-                        <form class="row" id="reservation-input" onsubmit="Bookingdata()">
+                        <form class="row" id="reservation-input" onsubmit="Bookingdata(event)">
                             <input type="text" placeholder="Your Name"
                                 class="col-12 col-sm-12 col-md-5 col-lg-5 mx-md-1 p-2 mt-3" id="bk-name">
                             <input type="text" placeholder="Your Email"
@@ -93,8 +93,8 @@
                                 class="col-12 col-sm-12 col-md-5 col-lg-6 mx-md-1 p-2 mt-3" id="bk-number">
                             <textarea placeholder="Special Request"
                                 class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3 " id="bk-msg"></textarea>
-                            <button class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3"
-                                type="submit">Book Now</button>
+                            <button class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3" type="submit">Book
+                                Now</button>
                         </form>
                     </div>
                 </div>
@@ -174,7 +174,8 @@
 
     <script src="./home.js"></script>
     <script>
-        async function Bookingdata() {
+        async function Bookingdata(event) {
+            event.preventDefault()
             let name = document.getElementById("bk-name").value
             let email = document.getElementById("bk-email").value
             let date = document.getElementById("bk-date").value
@@ -182,31 +183,33 @@
             let msg = document.getElementById("bk-msg").value
             if (name && email && date && number && msg) {
                 try {
-                    const formData = new FormData();
-                    formData.append("username", name);
-                    formData.append("email", email);
-                    formData.append("time", date);
-                    formData.append("number", number);
-                    formData.append("msg", msg);
-
-
+                
                     let apiurl = await fetch("https://restaurant-api-fxeb.onrender.com/booking", {
                         method: "POST",
-                        body: formData,
-                    })
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            username: name,
+                            email: email,
+                            time: date,
+                            number: number,
+                            msg: msg
+                        })
+                    });
                     const result = await apiurl.json()
-                    if(apiurl.ok){
-                        confirm("succfull booking user")
-                    }else{
-                        alert("succfull not booking")
+                    if (apiurl.ok) {
+                        alert(result.message)
+                    } else {
+                        alert(result.message)
                     }
-            } catch (error) {
-                 alert("Error: " + error.message);
+                } catch (error) {
+                    alert("Error: " + error.message);
+                }
+            } else {
+                alert("Please fill complete data ");
             }
-        }else{
-            alert("Please fill complete data ");
         }
-    }
     </script>
 
 </body>

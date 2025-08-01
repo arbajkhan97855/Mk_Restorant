@@ -22,33 +22,6 @@ function PARAR() {
         demo.innerHTML = c
     }
 };
-// Counting increase end
-// testimonial hide/show
-// function Breackfast() {
-//     let testimonial1 = document.getElementById("testimonial-top1");
-//     testimonial1.style.display = "block";
-//     let testimonial2 = document.getElementById("testimonial-top2");
-//     testimonial2.style.display = "none";
-//     let testimonial3 = document.getElementById("testimonial-top3");
-//     testimonial3.style.display = "none";
-// }
-// function Launch() {
-//     let testimonial1 = document.getElementById("testimonial-top1");
-//     testimonial1.style.display = "none";
-//     let testimonial2 = document.getElementById("testimonial-top2");
-//     testimonial2.style.display = "block";
-//     let testimonial3 = document.getElementById("testimonial-top3");
-//     testimonial3.style.display = "none";
-// }
-// function Dinner() {
-//     let testimonial1 = document.getElementById("testimonial-top1");
-//     testimonial1.style.display = "none";
-//     let testimonial2 = document.getElementById("testimonial-top2");
-//     testimonial2.style.display = "none";
-//     let testimonial3 = document.getElementById("testimonial-top3");
-//     testimonial3.style.display = "block";
-// }
-
 // TESTIMONIAL END
 // link page start
 function Menupage(e) {
@@ -74,11 +47,10 @@ async function Profilepage() {
 
     let ad = document.getElementById("hp")
     ad.innerHTML = `<div id="cs"><span>id : ${convertapi._id}</span><i class="fa-solid fa-x" onclick="Profileout()"></i></div>
-                            <img src="${convertapi.profileimg}" alt="loadiing.." height="100px" width="100px"><br>
+                            <img src="https://restaurant-api-fxeb.onrender.com/uploads/${convertapi.profileimg}" alt="loadiing.." height="100px" width="100px"><br>
        <h5>Employer Name : ${convertapi.username}</h5>
        <h6>Employer Email : ${convertapi.useremail}</h6>
        <h6>Employer Number : ${convertapi.mobile}</h6>
-       <h6>Employer DOB : ${convertapi.DOB}</h6>
        <h6>Employer Password : ${convertapi.password}</h6>
        <button onclick="Editjump()">Edit Profile</button>`
 

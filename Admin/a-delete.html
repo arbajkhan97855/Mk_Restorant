@@ -63,10 +63,10 @@ body {
     <script>
         
 async function Deletedata() {
-    let Userdatad = document.getElementById("Id").value;     
+    try {
+        let Userdatad = document.getElementById("Id").value;     
     let usersdata = await fetch(`https://restaurant-api-fxeb.onrender.com/user`)
-    let allusers = await usersdata.json()
-    let convertapi = allusers.login;
+    let convertapi = await usersdata.json()
     let Findapi = convertapi.find((item) => item._id == Userdatad);
      if(Findapi){
         let apiurl = await fetch(`https://restaurant-api-fxeb.onrender.com/user/${Userdatad}`,{
@@ -83,6 +83,10 @@ async function Deletedata() {
      }else{
         alert("please fill input")
      }
+    } catch (error) {
+        alert(error.message)
+    }
+    
     }
             
    

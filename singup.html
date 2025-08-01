@@ -6,14 +6,14 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" type="image/png" href="./Logo/logo-icon.png" />
+    <link rel="icon" type="image/png" href="./Logo/logo-icon.png" />
     <title>Singup</title>
     <link rel="stylesheet" href="./singup.css">
 </head>
 
 <body>
     <div id="login-main">
-        <form class="form" id="Login-form" onsubmit="SingupPage()" enctype="multipart/form-data">
+        <form class="form" id="Login-form" onsubmit="SingupPage(event)" enctype="multipart/form-data">
             <h3>Singup Now</h3>
             <input type="text" placeholder="enter usernaame" id="Username" name="form_username">
             <br>
@@ -23,75 +23,76 @@
             <br>
             <input type="email" placeholder="enter email" id="Email" name="form_email">
             <br>
-              <input type="file" id="Profile" title="Profile-img">  
+            <input type="file" id="Profile" title="Profile-img" name="profileimg">
             <br>
-            <input type="date" placeholder="enter DOB" id="DOB" name="form_dob">
-            <br>      
             <button type="submit">Singup</button>
             <button onclick="Loginjump()">Login</button>
         </form>
     </div>
 
     <script>
-        async function SingupPage() {
-    event.preventDefault()
-    let Userdata = document.getElementById("Username").value;
-    let PasswordData = document.getElementById("Password").value;
-    let MobileData = document.getElementById("Number").value;
-    let ProfileimgData = document.getElementById("Profile").files[0];
-    let EmailData = document.getElementById("Email").value;
-    let DOBData = document.getElementById("DOB").value;
-
-//  hum backend se response msg lena ho to  try, catch use krenge
-    if (PasswordData && MobileData.length === 10) {
+        async function SingupPage(event) {
             try {
-            const formData = new FormData();
-            formData.append("username", Userdata);
-            formData.append("password", PasswordData);
-            formData.append("mobile", MobileData);
-            formData.append("useremail", EmailData);
-            formData.append("profileimg", ProfileimgData);
-            formData.append("DOB", DOBData);
-            
+                event.preventDefault()
+                let Userdata = document.getElementById("Username").value;
+                let PasswordData = document.getElementById("Password").value;
+                let MobileData = document.getElementById("Number").value;
+                let ProfileimgData = document.getElementById("Profile").files[0];
+                let EmailData = document.getElementById("Email").value;
+               
 
-                const response = await fetch('https://restaurant-api-fxeb.onrender.com/user', {
-                    method: "POST",
-                    body: formData,
+                // not duplicate email - 
+                const apidata = await fetch('https://restaurant-api-fxeb.onrender.com/user')
+                const convertapidata = await apidata.json()
+                const finddata = convertapidata.find((item) => item.useremail == EmailData);
+                //  hum backend se response msg lena ho to  try, catch use krenge
+                if (PasswordData && MobileData.length === 10) {
+                    if (!finddata) {
+                        const formData = new FormData();
+                        formData.append("username", Userdata);
+                        formData.append("password", PasswordData);
+                        formData.append("mobile", MobileData);
+                        formData.append("useremail", EmailData);
+                        formData.append("profileimg", ProfileimgData);
 
-                });
-                const result = await response.json()
-                if(response.ok){
-                   confirm("succfull singup user")
-                   setTimeout(()=>{
-                     window.location.href = "./index.html"
-                       },1000)
-                }else{
-                    alert("succfull not singup user")
-                } // parse response as JSON /jab msg backend se lane ho
-                ;  // ye backend se aa rha h msg
-                // confirm("suceeefully submit data"); // 👈 confirm me message dikh raha hai ye static 
 
+                        const response = await fetch('https://restaurant-api-fxeb.onrender.com/user', {
+                            method: "POST",
+                            body: formData,
+
+                        });
+                        const result = await response.json()
+                        if (response.ok) {
+                            alert(result.message)
+                            setTimeout(() => {
+                                window.location.href = "./index.html"
+                            }, 1000)
+                        } else {
+                            alert(result.message)
+                        }
+                    } else {
+                        alert("Duplicate Email is not valid ")
+                    }
+                } else {
+                    alert("Please fill password and valid 10-digit mobile number.");
+                }
             } catch (error) {
                 alert("Error: " + error.message);
             }
-        } else {
-            alert("Please fill password and valid 10-digit mobile number.");
         }
 
-}
 
 
-const Loginjump = ()=>{
-    setTimeout(()=>{
- window.location.href = "./index.html"
-    },1000)
-   
-}
+        const Loginjump = () => {
+            setTimeout(() => {
+                window.location.href = "./index.html"
+            }, 1000)
+        }
 
 
-      
 
-   
+
+
 
 
 

@@ -13,15 +13,15 @@
 
 <body>
     <div id="login-main">
-        <div class="form" id="Login-form">
+        <form class="form" id="Login-form" onsubmit="LoginPage()">
             <h3>Login Now</h3>
-            <input type="text" placeholder="enter usernaame" id="Username">
+            <input type="email" placeholder="enter email" id="email">
             <br>
             <input type="password" placeholder="enter password" id="Password">
             <br>
-            <button onclick="LoginPage()">Login</button>
+            <button type="submit">Login</button>
             <button onclick="Singupjump()">Singup</button>
-        </div>
+        </form>
     </div>
 
     <script>
@@ -31,20 +31,20 @@
 
  
         async function LoginPage() {
-            let Userdata = document.getElementById("Username").value;
+            event.preventDefault()
+            let email = document.getElementById("email").value;
             let PasswordData = document.getElementById("Password").value;
 
             let apiurl = await fetch('https://restaurant-api-fxeb.onrender.com/user')
-            let convert = await apiurl.json();
-            let convertapi = convert.login;
-
-            let Findapi = convertapi.find((item) => item.username == Userdata && item.password == PasswordData);
+            let convertapi = await apiurl.json();
+        
+            let Findapi = convertapi.find((item) => item.useremail == email && item.password == PasswordData);
             if (Findapi) {
                 alert("successfull login");
                 localStorage.setItem("user",Findapi._id); 
                 setTimeout(()=>{
                     window.location.href = "./home.html"
-                },3000)  
+                },1000)  
                 // localStorage me user aik key h jo kuch bhi de skte h ; 
             } else {
                 alert("cannot match the acoount,please try again")
@@ -53,9 +53,7 @@
     
 
         function Singupjump(){
-         setTimeout(()=>{
             window.location.href = "./singup.html";
-         },1000)
         }
       
 

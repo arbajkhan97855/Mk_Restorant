@@ -13,7 +13,7 @@
 
 <body>
     <div id="login-main">
-       <form class="form" id="Login-form" onsubmit="EditPage()" enctype="multipart/form-data">
+       <form class="form" id="Login-form" onsubmit="EditPage(event)" enctype="multipart/form-data">
             <h3>Edit Now</h3>
             <input type="text" placeholder="enter usernaame" id="Username" name="form_username">
             <br>
@@ -24,63 +24,62 @@
             <input type="email" placeholder="enter email" id="Email" name="form_email">
             <br>
               <input type="file" id="Profile" title="Profile-img">  
-            <br>
-            <input type="date" placeholder="enter DOB" id="DOB" name="form_dob">
-            <br>      
+            <br>   
             <button type="submit">Edit</button>
             <button onclick="Homejump()">Home</button>
         </form>
     </div>
 
     <script>
-    async function EditPage() {
+
+  function Homejump(){
+                window.location.href = "./home.html"
+        }
+
+        
+    async function EditPage(event) {
+         event.preventDefault()
+        try {
             let Userdata = document.getElementById("Username").value;
             let PasswordData = document.getElementById("Password").value;
-            let MobileData = document.getElementById("Number").value;
-            
+            let MobileData = document.getElementById("Number").value; 
             let ProfileimgData = document.getElementById("Profile").files[0];
             let EmailData = document.getElementById("Email").value;
-            let DOBData = document.getElementById("DOB").value;
+            
+            let USER = localStorage.getItem("user");
+            let usersdata = await fetch(`https://restaurant-api-fxeb.onrender.com/user/${USER}`)
+            let allusers = await usersdata.json()
   
             const formData = new FormData();
             formData.append("username", Userdata.length>0 ? Userdata : allusers.username);
             formData.append("password", PasswordData.length>0 ? PasswordData : allusers.password);
             formData.append("mobile",  MobileData.length>0 ?  MobileData: allusers.mobile);
             formData.append("useremail", EmailData.length>0 ? EmailData : allusers.useremail);
-            formData.append("profileimg", ProfileimgData.length>0 ? ProfileimgData : allusers.profileimg);
-            formData.append("DOB", DOBData.length>0 ? DOBData : allusers.DOB);
-
-            let USER = localStorage.getItem("user");
-// api singal data edit
-            let usersdata = await fetch(`https://restaurant-api-fxeb.onrender.com/user/${USER}`)
-            let allusers = await usersdata.json()
-// api singal data edit
-      
+            if (ProfileimgData) 
+            {  formData.append("profileimg", ProfileimgData);}
 
             if(MobileData.length == 10 || MobileData.length == 0){
                 let apiurl = await fetch(`https://restaurant-api-fxeb.onrender.com/user/${USER}`,{
                 method : "PATCH",
                 body : formData          
             })
-            const result = await apiurl.json()
+                const result = await apiurl.json()
                 if(apiurl.ok){
-                   confirm("succfull edit user")
+                   alert(result.message)
                 }else{
-                    alert("succfull not edit user")
+                    alert(result.message)
                 }        
             }
             else{
-                alert("please fill valid number")
+                alert(result.message)
             }
 
-            
+        } catch (error) {
+           alert("Error: " + error.message);
+        }      
         }
 
-        function Homejump(){
-            setTimeout(()=>{
-                window.location.href = "./home.html"
-            },2000)
-        }
+     
 
         
 
