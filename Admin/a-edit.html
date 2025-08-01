@@ -58,15 +58,15 @@ body {
           <button class="btn btn-primary mt-2" onclick="EditPage()">Edit</button>
         </div>
     
-        <div id="updating-data">
+        <form id="updating-data" onsubmit="EditPageg()" enctype="multipart/form-data">
           <input type="text" class="form-control" placeholder="Enter username" id="Username">
           <input type="text" class="form-control" placeholder="Enter password" id="Password">
           <input type="number" class="form-control" placeholder="Enter mobile" id="Number">
-          <input type="url" class="form-control" placeholder="Enter profile image URL" id="Profile">
           <input type="email" class="form-control" placeholder="Enter email" id="Email">
+          <input type="url" class="form-control" placeholder="Enter profile image URL" id="Profile">
           <input type="date" class="form-control" id="DOB">
-          <button class="btn btn-success mt-2" onclick="EditPageg()">Submit</button>
-        </div>
+          <button class="btn btn-success mt-2" type="submit">Submit</button>
+        </form>
       </div>
     </div>
     </div>
@@ -76,7 +76,7 @@ body {
         let Userdatad = document.getElementById("Id").value;
         let Updating = document.getElementById("updating-data");          
 // api singal data edit
-    let usersdata = await fetch(`https://node-live-three.vercel.app/user`)
+    let usersdata = await fetch(`https://restaurant-api-fxeb.onrender.com/user`)
     let allusers = await usersdata.json()
     let convertapi = allusers.login;
     let Findapi = convertapi.find((item) => item._id == Userdatad);
@@ -92,30 +92,35 @@ body {
             let Userdata = document.getElementById("Username").value;
             let PasswordData = document.getElementById("Password").value;
             let MobileData = document.getElementById("Number").value;  
-            let ProfileimgData = document.getElementById("Profile").value;
+            let ProfileimgData = document.getElementById("Profile").files[0];
             let EmailData = document.getElementById("Email").value;
             let DOBData = document.getElementById("DOB").value;
 
+            
 // api singal data edit
-            let usersdata = await fetch(`https://node-live-three.vercel.app/user/${Userdatad}`)
+            let usersdata = await fetch(`https://restaurant-api-fxeb.onrender.com/user/${Userdatad}`)
             let allusers = await usersdata.json()
 // api singal data edit
-            console.log(allusers)
+          const formData = new FormData();
+            formData.append("username", Userdata.length>0 ? Userdata : allusers.username);
+            formData.append("password", PasswordData.length>0 ? PasswordData : allusers.password);
+            formData.append("mobile",  MobileData.length>0 ?  MobileData: allusers.mobile);
+            formData.append("useremail", EmailData.length>0 ? EmailData : allusers.useremail);
+            formData.append("profileimg", ProfileimgData.length>0 ? ProfileimgData : allusers.profileimg);
+            formData.append("DOB", DOBData.length>0 ? DOBData : allusers.DOB);
+    
 
             if(MobileData.length == 10 || MobileData.length == 0){
-                let apiurl = await fetch(`https://node-live-three.vercel.app/user/${Userdatad}`,{
+                let apiurl = await fetch(`https://restaurant-api-fxeb.onrender.com/user/${Userdatad}`,{
                 method : "PATCH",
-                body : JSON.stringify({"username" : Userdata.length>0 ? Userdata : allusers.username , "password" : PasswordData.length>0 ? PasswordData : allusers.password, "mobile" : MobileData.length>0 ?  MobileData: allusers.mobile, "useremail" : EmailData.length>0 ? EmailData : allusers.useremail, "profileimg" : ProfileimgData.length>0 ? ProfileimgData : allusers.profileimg, "DOB" : DOBData.length>0 ? DOBData : allusers.DOB}          
-              ),
-              headers: {
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Headers": "Content-Type",
-                    }
-            }).then(()=>{
-                alert("succefuuly edit");
-            }).catch(()=>{
-                alert("cannot succefuuly edit")
+                body : formData         
             })
+             const result = await apiurl.json()
+                if(apiurl.ok){
+                   confirm("succfull edit user")
+                }else{
+                    alert("succfull not edit user")
+                }        
             }else{
                 alert("please fill valid input")
             } 

@@ -51,10 +51,10 @@ function PARAR() {
 
 // TESTIMONIAL END
 // link page start
-function Menupage(e){
-    setTimeout(()=>{
-     window.location.href = e
-    },1000)
+function Menupage(e) {
+    setTimeout(() => {
+        window.location.href = e
+    }, 1000)
 }
 // end
 // profile
@@ -69,7 +69,7 @@ async function Profilepage() {
     const ap = document.getElementById("hs");
     ap.style.display = "block";
     let USER = localStorage.getItem("user");
-    let apiurl = await fetch(`https://node-live-three.vercel.app/user/${USER}`)
+    let apiurl = await fetch(`https://restaurant-api-fxeb.onrender.com/user/${USER}`)
     let convertapi = await apiurl.json();
 
     let ad = document.getElementById("hp")
@@ -92,7 +92,7 @@ function Editjump() {
 // profile js end
 
 let Product = [
-         {
+    {
         id: "19",
         productname: "Panner Momose",
         productdetail: "Lorem ipsum dolor sit amet con",
@@ -240,7 +240,7 @@ let Product = [
 function MenuData() {
     const ar = document.getElementById('menupage-p')
     ar.innerHTML = Product.map((item) => {
-            return (
+        return (
             `
                <div class="col-5 col-sm-4 col-md-2 col-lg-2  mx-md-2 mx-0  my-md-1 pt-1 menupage-div">
                 <img src=${item.img} height="70vh" width="100px" >
@@ -249,14 +249,14 @@ function MenuData() {
                   </div>
        `
         )
-      })
+    })
 }
 window.addEventListener("DOMContentLoaded", () => {
     MenuData();
 });
 function RenderProductsDefaultStart() {
-    const ara = document.getElementById('data-menu');  
-    const defaultProducts = Product.slice(0, 6); 
+    const ara = document.getElementById('data-menu');
+    const defaultProducts = Product.slice(0, 6);
     ara.innerHTML = defaultProducts.map(item => {
         return `
             <div class="row col-12 col-sm-12 col-md-12 col-lg-6 testimonial-item">
@@ -280,9 +280,9 @@ function FilterByCategory(category) {
     let ara = document.getElementById('data-menu');
     const filtered = Product.filter(item => item.category === category.toLowerCase());
 
-    if(filtered.length>0){
-         ara.innerHTML = filtered.map((item) => {
-        return `
+    if (filtered.length > 0) {
+        ara.innerHTML = filtered.map((item) => {
+            return `
             <div class="row col-12 col-sm-12 col-md-12 col-lg-6 testimonial-item">
                 <img src=${item.img} class="img-fluid col-2 col-sm-2 col-md-2 col-lg-2" style="width: 110px;">
                 <div class="testimonial-name col-8 col-sm-9 col-md-9 col-lg-9">
@@ -295,8 +295,8 @@ function FilterByCategory(category) {
                 </div>
             </div>
         `;
-    }).join('');
-    }   
+        }).join('');
+    }
 }
 
 

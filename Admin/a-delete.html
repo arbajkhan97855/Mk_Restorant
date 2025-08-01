@@ -64,12 +64,12 @@ body {
         
 async function Deletedata() {
     let Userdatad = document.getElementById("Id").value;     
-    let usersdata = await fetch(`https://node-live-three.vercel.app/user`)
+    let usersdata = await fetch(`https://restaurant-api-fxeb.onrender.com/user`)
     let allusers = await usersdata.json()
     let convertapi = allusers.login;
     let Findapi = convertapi.find((item) => item._id == Userdatad);
      if(Findapi){
-        let apiurl = await fetch(`https://node-live-three.vercel.app/user/${Userdatad}`,{
+        let apiurl = await fetch(`https://restaurant-api-fxeb.onrender.com/user/${Userdatad}`,{
                 method : "DELETE",
                headers: {
                         "Content-Type": "application/json",

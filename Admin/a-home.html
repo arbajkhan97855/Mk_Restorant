@@ -145,7 +145,7 @@
   <script>
     async function Adduserdata() {
       
-        const response = await fetch('https://node-live-three.vercel.app/user');
+        const response = await fetch('https://restaurant-api-fxeb.onrender.com/user');
         const data = await response.json();
         const users = data.login;
       const book = document.getElementById("main-booking-content");
@@ -176,7 +176,7 @@
 
     async function Addbookingdata() {
       
-      const response = await fetch('https://node-live-three.vercel.app/booking');
+      const response = await fetch('https://restaurant-api-fxeb.onrender.com/booking');
       const data = await response.json();
       const users = data.userdetaile;
       const user = document.getElementById("main-user-content");
