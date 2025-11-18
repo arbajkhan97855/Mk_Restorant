@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
   <div id="hss">
       <!-- header -->
-      <div id="restoran-main" class="p-0">
+      <div id="restoran-main" class="p-0" data-aos="fade-down" data-aos-duration="800">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a href="" class="navbar-brand p-0">
                 <h1 class="m-0"><i class="fa fa-utensils me-3"></i>Restaurant</h1>
@@ -44,7 +45,7 @@
     <!-- header end -->
 
  <!-- about us banner-->
- <div class="container-xxl py-5 bg-dark hero-header mb-5" id="about-slider">
+ <div class="container-xxl py-5 bg-dark hero-header mb-5" id="about-slider" data-aos="fade-right" data-aos-duration="1000">
     <div class="container text-center my-5 pt-5 pb-4">
         <h1 class="display-3 text-white mb-3 fw-bold">About Us</h1>
         <nav aria-label="breadcrumb">
@@ -58,9 +59,9 @@
 </div>
 <!-- about us banner -->
 <div id="about-us">
-    <h2>About Us</h2>
+    <h2 data-aos="fade-up" data-aos-duration="1000">About Us</h2>
     <div class="row" id="about-main">
-        <div class="row col-12 col-sm-12 col-md-12 col-lg-6" id="about-img">
+        <div class="row col-12 col-sm-12 col-md-12 col-lg-6" id="about-img" data-aos="zoom-up-in" data-aos-duration="1000">
             <div class="col-6 col-sm-6 col-md-6 col-lg-6 "><img src="./img/about-1.jpg" alt="loading.."
                     class="img-fluid"></div>
             <div class="col-6 col-sm-6 col-md-6 col-lg-6"><img src="./img/about-2.jpg" alt="loading.."
@@ -71,7 +72,7 @@
                     class="img-fluid"></div>
         </div>
 
-        <div class="row col-12 col-sm-12 col-md-12 col-lg-6" id="about-text">
+        <div class="row col-12 col-sm-12 col-md-12 col-lg-6" id="about-text" data-aos="fade-left" data-aos-duration="1000">
             <h1>Welcome to <i class="fa fa-3x fa-utensils mb-3"></i>Restaurant</h1>
             <p>
                 Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
@@ -84,14 +85,14 @@
             <div class="row">
                 <div class="col-11 col-sm-6 col-md-6 col-lg-6" id="line-content">
                     <div class="line"></div>
-                    <h2 id="sd">1</h2>
+                    <h2 id="sd">4</h2>
                     <div><span>year to</span>
                         <h3>experience</h3>
                     </div>
                 </div>
                 <div class="col-11 col-sm-6 col-md-6 col-lg-6" id="line-cont">
                     <div class="line"></div>
-                    <h2 id="sdd">1</h2>
+                    <h2 id="sdd">18</h2>
                     <div><span>popular</span>
                         <h4>Master Chief</h4>
                     </div>
@@ -103,7 +104,9 @@
 </div>
 <!-- footer -->
 
-<div class="container-fluid  footer pt-2  wow" data-wow-delay="0.1s" style="visibility: visible; background-color: rgb(15, 23, 43); color: white;">
+<div class="container-fluid  footer pt-2  wow" data-wow-delay="0.1s" 
+style="visibility: visible; background-color: rgb(15, 23, 43); color: white;"
+data-aos="fade-up" data-aos-duration="1000">
     <div class="container py-1">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
@@ -170,7 +173,10 @@
 </div>
 
 <script src="./home.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+</script>
 
 </body>
 </html>

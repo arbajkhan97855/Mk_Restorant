@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
   <div id="hss">
       <!-- header -->
-      <div id="restoran-main" class="p-0">
+      <div id="restoran-main" class="p-0" data-aos="fade-down" data-aos-duration="800">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a href="" class="navbar-brand p-0">
                 <h1 class="m-0"><i class="fa fa-utensils me-3"></i>Restaurant</h1>
@@ -44,7 +45,7 @@
     <!-- header end -->
    
  <!-- service slide -->
- <div class="container-xxl py-5 bg-dark hero-header mb-5" id="service-slider">
+ <div class="container-xxl py-5 bg-dark hero-header mb-5" id="service-slider" data-aos="fade-right" data-aos-duration="1000">
     <div class="container text-center my-5 pt-5 pb-4">
         <h1 class="display-3 text-white mb-3 fw-bold">Service Us</h1>
         <nav aria-label="breadcrumb">
@@ -58,24 +59,24 @@
 </div>
 <!-- service slider -->
 <div id="restoran-banefit" class="pt-3">
-    <h2>Restaurant Benefit</h2>
+    <h2 data-aos="fade-up">Restaurant Benefit</h2>
     <div class="row" id="Benefit-main">
-        <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top">
+        <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top" data-aos="flip-left" data-aos-duration="1000">
             <i class="fa fa-3x fa-user-tie mb-3"></i>
             <h5>Master Chefs</h5>
             <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
         </div>
-        <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top">
+        <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top" data-aos="flip-left" data-aos-duration="1100">
             <i class="fa fa-3x fa-utensils mb-3"></i>
             <h5>Quality Food</h5>
             <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
         </div>
-        <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top">
+        <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top" data-aos="flip-left" data-aos-duration="1200">
             <i class="fa fa-3x fa-cart-plus mb-3"></i>
             <h5>Online Order</h5>
             <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
         </div>
-        <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top">
+        <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top" data-aos="flip-left" data-aos-duration="1300">
             <i class="fa fa-3x fa-headset mb-3"></i>
             <h5>24/7 Service</h5>
             <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
@@ -84,7 +85,9 @@
 </div>
 <!-- footer -->
 
-<div class="container-fluid  footer pt-2  wow" data-wow-delay="0.1s" style="visibility: visible; background-color: rgb(15, 23, 43); color: white;">
+<div class="container-fluid  footer pt-2  wow" data-wow-delay="0.1s" 
+style="visibility: visible; background-color: rgb(15, 23, 43); color: white;"
+data-aos="fade-up" data-aos-duration="1000">
     <div class="container py-1">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
@@ -151,7 +154,9 @@
 </div>
 
 <script src="./home.js"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+</script>
 </body>
 </html>

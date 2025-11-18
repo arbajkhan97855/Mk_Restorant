@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="home.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+        <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
   <div id="hss">
        <!-- header -->
-       <div id="restoran-main" class="p-0">
+        <div id="restoran-main" class="p-0" data-aos="fade-down" data-aos-duration="800">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a href="" class="navbar-brand p-0">
                 <h1 class="m-0"><i class="fa fa-utensils me-3"></i>Restaurant</h1>
@@ -34,30 +35,17 @@
                     <a href="#" class="nav-item nav-link active" onclick="Menupage('./about.html')" >About</a>
                     <a href="#" class="nav-item nav-link active" onclick="Menupage('./service.html')">Service</a>
                     <a href="#" class="nav-item nav-link active" onclick="Menupage('./menu.html')">Menu</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu m-0">
-                            <a href="#" class="dropdown-item" onclick="Menupage('./Booking.html')">Booking</a>
-                            <a href="#" class="dropdown-item" onclick="Menupage('./team.html')">Our Team</a>
-                        </div>
-                    </div>
-                    <a href="#" class="nav-item nav-link active" onclick="Profilepage()">Profile</a>
+                    <a href="#" class="nav-item nav-link active" onclick="Menupage('./Booking.html')">Booking</a>
+                    <a href="#" class="nav-item nav-link active" onclick="Menupage('./team.html')">Team</a>
                 </div>
                 <a href="#" class="btn py-2 px-4" onclick="Menupage('./Booking.html')">Book A Table</a>
             </div>
         </nav>
     </div>
     <!-- header end -->
-        <!-- profile -->
-  <div id="hs">
-    <div id="hp">
-     
 
-    </div>
-  </div>
-<!-- profile end -->
  <!-- team slider -->
- <div class="container-xxl py-5 bg-dark hero-header mb-5" id="Team-slider">
+ <div class="container-xxl py-5 bg-dark hero-header mb-5" id="Team-slider" data-aos="fade-right" data-aos-duration="1000">
     <div class="container text-center my-5 pt-5 pb-4">
         <h1 class="display-3 text-white mb-3 fw-bold">Team Us</h1>
         <nav aria-label="breadcrumb">
@@ -73,12 +61,12 @@
  <!-- teamwork start -->
 
  <div class="container" id="Teamwork">
-    <div class="text-center wow fadeInUp" data-wow-delay="0.1s" >
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s" data-aos="fade-up" data-aos-duration="1000" >
         <h5 class="section-title">Team Members</h5>
         <h1 class="mb-3">Our Master Chefs</h1>
     </div>
     <div class="row g-4">
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s" data-aos="zoom-in" data-aos-duration="1000">
             <div class="team-item text-center rounded overflow-hidden">
                 <div class="rounded-circle overflow-hidden m-4">
                     <img class="img-fluid" src="img/team-1.jpg" alt="">
@@ -92,7 +80,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s" data-aos="zoom-in" data-aos-duration="1100">
             <div class="team-item text-center rounded overflow-hidden">
                 <div class="rounded-circle overflow-hidden m-4">
                     <img class="img-fluid" src="img/team-2.jpg" alt="">
@@ -106,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s" data-aos="zoom-in" data-aos-duration="1200">
             <div class="team-item text-center rounded overflow-hidden">
                 <div class="rounded-circle overflow-hidden m-4">
                     <img class="img-fluid" src="img/team-3.jpg" alt="">
@@ -120,7 +108,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s" data-aos="zoom-in" data-aos-duration="1300">
             <div class="team-item text-center rounded overflow-hidden">
                 <div class="rounded-circle overflow-hidden m-4">
                     <img class="img-fluid" src="img/team-4.jpg" alt="">
@@ -140,7 +128,9 @@
 
 <!-- footer -->
 
-<div class="container-fluid  footer pt-2  wow" data-wow-delay="0.1s" style="visibility: visible; background-color: rgb(15, 23, 43); color: white;">
+<div class="container-fluid  footer pt-2  wow" data-wow-delay="0.1s" 
+style="visibility: visible; background-color: rgb(15, 23, 43); color: white;"
+data-aos="fade-up" data-aos-duration="1000">
     <div class="container py-1">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
@@ -207,7 +197,9 @@
 </div>
 
 <script src="./home.js"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+</script>
 </body>
 </html>

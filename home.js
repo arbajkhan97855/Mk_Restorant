@@ -1,20 +1,6 @@
 
 // Counting increase
-function PARA() {
-    let demo = document.getElementById("sd");//onpointermove event
-    for(let i = 1; i <= 4 ; i++){
-        demo.innerHTML = i
-    }
-};
-PARA();
 
-function PARAR() {
-    let demo = document.getElementById("sdd");//onpointermove event
-     for(let i = 1; i <= 18 ; i++){
-        demo.innerHTML = i
-    }
-};
-PARAR();
 // TESTIMONIAL END
 // link page start
 function Menupage(e) {
@@ -184,6 +170,7 @@ function MenuData() {
         );
     })
 }
+
 window.addEventListener("DOMContentLoaded", () => {
     MenuData();
 });
@@ -192,7 +179,7 @@ function RenderProductsDefaultStart() {
     const defaultProducts = Product.slice(0, 6);
     ara.innerHTML = defaultProducts.map(item => {
         return `
-            <div class="row col-12 col-sm-12 col-md-12 col-lg-6 testimonial-item">
+            <div class="row col-12 col-sm-12 col-md-12 col-lg-6 testimonial-item" data-aos="fade-right" data-aos-duration="1000">
                 <img src=${item.img} class="img-fluid col-2 col-sm-2 col-md-2 col-lg-2" style="width: 110px;">
                 <div class="testimonial-name col-8 col-sm-9 col-md-9 col-lg-9">
                     <div class="testimonial-head">

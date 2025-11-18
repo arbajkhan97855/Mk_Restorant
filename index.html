@@ -14,14 +14,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-       
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
   <div id="hss" >
     <!-- header -->
-    <div id="restoran-main" class="p-0"  >
+    <div id="restoran-main" class="p-0" data-aos="fade-down" data-aos-duration="800">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a href="" class="navbar-brand p-0">
                 <h1 class="m-0"><i class="fa fa-utensils me-3"></i>Restaurant</h1>
@@ -58,7 +58,10 @@
                 <button onclick="Menupage('./Booking.html')">Book A Table</button>
             </div>
 
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-lg-end overflow-hidden text-center" id="animated-img">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-lg-end overflow-hidden text-center" 
+            id="animated-img"
+             data-aos="zoom-in"
+              data-aos-duration="1000">
                 <img src="./img/hero.png" alt="loading.." class="img-fluid">
             </div>
 
@@ -68,24 +71,24 @@
 
     <!-- benefite -->
     <div id="restoran-banefit" class="pt-3">
-        <h2>Restaurant Benefit</h2>
+        <h2 data-aos="fade-up">Restaurant Benefit</h2>
         <div class="row" id="Benefit-main">
-            <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top">
+            <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top"  data-aos="flip-left" data-aos-duration="1000">
                 <i class="fa fa-3x fa-user-tie mb-3"></i>
                 <h5>Master Chefs</h5>
                 <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
             </div>
-            <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top">
+            <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top" data-aos="flip-left" data-aos-duration="1100">
                 <i class="fa fa-3x fa-utensils mb-3"></i>
                 <h5>Quality Food</h5>
                 <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
             </div>
-            <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top">
+            <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top" data-aos="flip-left" data-aos-duration="1200">
                 <i class="fa fa-3x fa-cart-plus mb-3"></i>
                 <h5>Online Order</h5>
                 <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
             </div>
-            <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top">
+            <div class="col-10 col-sm-10 col-md-5 col-lg-2" id="Benefit-top" data-aos="flip-left" data-aos-duration="1300">
                 <i class="fa fa-3x fa-headset mb-3"></i>
                 <h5>24/7 Service</h5>
                 <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
@@ -97,9 +100,9 @@
     <!-- about us -->
     
     <div id="about-us">
-        <h2>About Us</h2>
+        <h2 data-aos="fade-up" data-aos-duration="1000">About Us</h2>
         <div class="row" id="about-main">
-            <div class="row col-12 col-sm-12 col-md-12 col-lg-6" id="about-img">
+            <div class="row col-12 col-sm-12 col-md-12 col-lg-6" id="about-img" data-aos="zoom-up-in" data-aos-duration="1000">
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 "><img src="./img/about-1.jpg" alt="loading.."
                         class="img-fluid"></div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6"><img src="./img/about-2.jpg" alt="loading.."
@@ -110,7 +113,7 @@
                         class="img-fluid"></div>
             </div>
 
-            <div class="row col-12 col-sm-12 col-md-12 col-lg-6" id="about-text">
+            <div class="row col-12 col-sm-12 col-md-12 col-lg-6" id="about-text" data-aos="fade-left" data-aos-duration="1000">
                 <h1>Welcome to <i class="fa fa-3x fa-utensils mb-3"></i> Restaurant</h1>
                 <p>
                     Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
@@ -123,14 +126,14 @@
                 <div class="row">
                     <div class="col-11 col-sm-6 col-md-6 col-lg-6" id="line-content">
                         <div class="line"></div>
-                        <h2 id="sd" >1</h2>
+                        <h2 id="sd" >4</h2>
                         <div><span>year to</span>
                             <h3>experience</h3>
                         </div>
                     </div>
                     <div class="col-11 col-sm-6 col-md-6 col-lg-6" id="line-cont">
                         <div class="line"></div>
-                        <h2 id="sdd" >1</h2>
+                        <h2 id="sdd" >18</h2>
                         <div><span>popular</span>
                             <h4>Master Chief</h4>
                         </div>
@@ -144,16 +147,16 @@
 
     <!-- food-menu -->
     <div id="menu">
-        <div class="food-menu">
+        <div class="food-menu" data-aos="fade-up" data-aos-duration="1000">
             <div class="f-top">
                 <div></div>
                 <h4 class="f-menu">food menu</h4>
                 <div></div>
             </div>
         </div>
-        <h1>Most Popular Items</h1>
+        <h1 data-aos="fade-up" data-aos-duration="1000">Most Popular Items</h1>
         <div id="time-food">
-            <div class="time-item" onclick="FilterByCategory('breackfast')">
+            <div class="time-item" onclick="FilterByCategory('breackfast')" data-aos="fade-up" data-aos-duration="1000">
                 <div class="ts">
                     <i class="fa fa-coffee fa-2x"></i>
                     <div>
@@ -162,7 +165,7 @@
                     </div>
                 </div>
             </div>
-            <div class="time-item"  onclick="FilterByCategory('launch')">
+            <div class="time-item"  onclick="FilterByCategory('launch')" data-aos="fade-up" data-aos-duration="1000">
                 <div class="ts">
                     <i class="fa fa-hamburger fa-2x"></i>
                     <div>
@@ -171,7 +174,7 @@
                     </div>
                 </div>
             </div>
-            <div class="time-item" onclick="FilterByCategory('dinner')">
+            <div class="time-item" onclick="FilterByCategory('dinner')" data-aos="fade-up" data-aos-duration="1000">
                 <div class="ts">
                     <i class="fa fa-utensils fa-2x"></i>
                     <div>
@@ -198,10 +201,10 @@
    
         <div id="reservation">
             <div class="row" id="reservation-main">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6" id="reservation-1">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" id="reservation-1" data-aos="flip-left" data-aos-duration="1000">
                     <img src="./img/videoframe_18856.png" class="img-fluid" width="100%">
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-4" id="reservation-2">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-4" id="reservation-2" data-aos="flip-right" data-aos-duration="1000">
                     <div class="reservation-top text-center">
                         <h5 class="text-md-start">Reservation</h5>
                         <h1 class="text-md-start">Book A Table Online</h1>
@@ -227,12 +230,12 @@
  <!-- teamwork start -->
 
 <div class="container" id="Teamwork">
-    <div class="text-center wow fadeInUp" data-wow-delay="0.1s" >
+    <div class="text-center wow fadeInUp" data-wow-delay="0.1s"  data-aos="fade-up" data-aos-duration="1000">
         <h5 class="section-title">Team Members</h5>
         <h1 class="mb-3">Our Master Chefs</h1>
     </div>
     <div class="row g-4">
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s" data-aos="zoom-in" data-aos-duration="1000">
             <div class="team-item text-center rounded overflow-hidden">
                 <div class="rounded-circle overflow-hidden m-4">
                     <img class="img-fluid" src="img/team-1.jpg" alt="">
@@ -246,7 +249,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s" data-aos="zoom-in" data-aos-duration="1100">
             <div class="team-item text-center rounded overflow-hidden">
                 <div class="rounded-circle overflow-hidden m-4">
                     <img class="img-fluid" src="img/team-2.jpg" alt="">
@@ -260,7 +263,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s" data-aos="zoom-in" data-aos-duration="1200">
             <div class="team-item text-center rounded overflow-hidden">
                 <div class="rounded-circle overflow-hidden m-4">
                     <img class="img-fluid" src="img/team-3.jpg" alt="">
@@ -274,7 +277,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s" data-aos="zoom-in" data-aos-duration="1300">
             <div class="team-item text-center rounded overflow-hidden">
                 <div class="rounded-circle overflow-hidden m-4">
                     <img class="img-fluid" src="img/team-4.jpg" alt="">
@@ -293,7 +296,7 @@
 <!-- team work end -->
  <!-- footer -->
 
- <div class="container-fluid  footer pt-2  wow" data-wow-delay="0.1s" style="visibility: visible; background-color: rgb(15, 23, 43); color: white;">
+ <div class="container-fluid  footer pt-2  wow" data-wow-delay="0.1s" style="visibility: visible; background-color: rgb(15, 23, 43); color: white;" data-aos="fade-up" data-aos-duration="1000">
     <div class="container py-1">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
@@ -360,9 +363,10 @@
 </div>
 
 <script src="./home.js"></script>
- <script>
-    AOS.init();
-  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+</script>
 </body>
 
 </html>

@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="home.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+        <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
     <div id="hss">
         <!-- header -->
-        <div id="restoran-main" class="p-0">
+        <div id="restoran-main" class="p-0" data-aos="fade-down" data-aos-duration="800">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <a href="" class="navbar-brand p-0">
                     <h1 class="m-0"><i class="fa fa-utensils me-3"></i>Restaurant</h1>
@@ -44,7 +45,7 @@
         <!-- header end -->
     
         <!-- booking slide -->
-        <div class="container-xxl py-5 bg-dark hero-header mb-0" id="Booking-slider">
+        <div class="container-xxl py-5 bg-dark hero-header mb-0" id="Booking-slider" data-aos="fade-right" data-aos-duration="1000">
             <div class="container text-center my-5 pt-5 pb-4">
                 <h1 class="display-3 text-white mb-3 fw-bold">Booking Us</h1>
                 <nav aria-label="breadcrumb">
@@ -62,10 +63,10 @@
 
         <div id="reservation">
             <div class="row" id="reservation-main">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6" id="reservation-1">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" id="reservation-1" data-aos="flip-left" data-aos-duration="1000">
                     <img src="./img/videoframe_18856.png" class="img-fluid" width="100%">
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-4" id="reservation-2">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-4" id="reservation-2" data-aos="flip-right" data-aos-duration="1000">
                     <div class="reservation-top text-center">
                         <h5 class="text-md-start">Reservation</h5>
                         <h1 class="text-md-start">Book A Table Online</h1>
@@ -91,7 +92,8 @@
         <!-- footer -->
 
         <div class="container-fluid  footer pt-2  wow" data-wow-delay="0.1s"
-            style="visibility: visible; background-color: rgb(15, 23, 43); color: white;">
+            style="visibility: visible; background-color: rgb(15, 23, 43); color: white;"
+            data-aos="fade-up" data-aos-duration="1000">
             <div class="container py-1">
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
@@ -160,7 +162,10 @@
     </div>
 
     <script src="./home.js"></script>
-  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+</script>
 </body>
 
 </html>
