@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+       
     <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
-  <div id="hss">
+  <div id="hss" >
     <!-- header -->
-    <div id="restoran-main" class="p-0">
+    <div id="restoran-main" class="p-0"  >
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a href="" class="navbar-brand p-0">
                 <h1 class="m-0"><i class="fa fa-utensils me-3"></i>Restaurant</h1>
@@ -122,14 +123,14 @@
                 <div class="row">
                     <div class="col-11 col-sm-6 col-md-6 col-lg-6" id="line-content">
                         <div class="line"></div>
-                        <h2 id="sd" onpointermove="PARA()">1</h2>
+                        <h2 id="sd" >1</h2>
                         <div><span>year to</span>
                             <h3>experience</h3>
                         </div>
                     </div>
                     <div class="col-11 col-sm-6 col-md-6 col-lg-6" id="line-cont">
                         <div class="line"></div>
-                        <h2 id="sdd" onpointermove="PARAR()">1</h2>
+                        <h2 id="sdd" >1</h2>
                         <div><span>popular</span>
                             <h4>Master Chief</h4>
                         </div>
@@ -194,32 +195,34 @@
 
     <!-- reservetion  start-->
     
-    <div id="reservation">
-        <div class="row" id="reservation-main">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6" id="reservation-1">
-                <img src="./img/videoframe_18856.png" class="img-fluid" width="100%">
-            </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-4" id="reservation-2">
-                <div class="reservation-top text-center">
-                    <h5 class="text-md-start">Reservation</h5>
-                    <h1 class="text-md-start">Book A Table Online</h1>
-                    <div class="row" id="reservation-input">
-                        <input type="text" placeholder="Your Name"
-                            class="col-12 col-sm-12 col-md-5 col-lg-5 mx-md-1 p-2 mt-3">
-                        <input type="text" placeholder="Your Email"
-                            class="col-12 col-sm-12 col-md-5 col-lg-6 mx-md-1 p-2 mt-3">
-                        <input type="datetime-local" placeholder="Reservation date"
-                            class="col-12 col-sm-12 col-md-5 col-lg-5 mx-md-1 p-2 mt-3">
-                        <input type="number" placeholder="Peoples Number"
-                            class="col-12 col-sm-12 col-md-5 col-lg-6 mx-md-1 p-2 mt-3">
-                        <textarea placeholder="Special Request"
-                            class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3 "></textarea>
-                        <button class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3">Book Now</button>
+   
+        <div id="reservation">
+            <div class="row" id="reservation-main">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" id="reservation-1">
+                    <img src="./img/videoframe_18856.png" class="img-fluid" width="100%">
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-4" id="reservation-2">
+                    <div class="reservation-top text-center">
+                        <h5 class="text-md-start">Reservation</h5>
+                        <h1 class="text-md-start">Book A Table Online</h1>
+                        <form class="row" id="reservation-input">
+                            <input type="text" placeholder="Your Name"
+                                class="col-12 col-sm-12 col-md-5 col-lg-5 mx-md-1 p-2 mt-3" id="bk-name">
+                            <input type="text" placeholder="Your Email"
+                                class="col-12 col-sm-12 col-md-5 col-lg-6 mx-md-1 p-2 mt-3" id="bk-email">
+                            <input type="date" placeholder="Reservation date"
+                                class="col-12 col-sm-12 col-md-5 col-lg-5 mx-md-1 p-2 mt-3" id="bk-date">
+                            <input type="number" placeholder="Peoples Number"
+                                class="col-12 col-sm-12 col-md-5 col-lg-6 mx-md-1 p-2 mt-3" id="bk-number">
+                            <textarea placeholder="Special Request"
+                                class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3 " id="bk-msg"></textarea>
+                            <button class="col-12 col-sm-12 col-md-11 col-lg-11 mx-md-1 p-2 mt-3" onclick="Bookingdata(event)" >Book
+                                Now</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 <!-- reservation end -->
  <!-- teamwork start -->
 
@@ -357,6 +360,9 @@
 </div>
 
 <script src="./home.js"></script>
+ <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>

@@ -1,27 +1,20 @@
 
 // Counting increase
-let b = 1;
 function PARA() {
     let demo = document.getElementById("sd");//onpointermove event
-    if (b > 0 && b < 15) {
-        b++;
-        demo.innerHTML = b
-    } else {
-        demo.innerHTML = b
+    for(let i = 1; i <= 4 ; i++){
+        demo.innerHTML = i
     }
-
 };
+PARA();
 
-let c = 1;
 function PARAR() {
     let demo = document.getElementById("sdd");//onpointermove event
-    if (c > 0 && c < 20) {
-        c++;
-        demo.innerHTML = c
-    } else {
-        demo.innerHTML = c
+     for(let i = 1; i <= 18 ; i++){
+        demo.innerHTML = i
     }
 };
+PARAR();
 // TESTIMONIAL END
 // link page start
 function Menupage(e) {
@@ -188,7 +181,7 @@ function MenuData() {
                 <h5>₹${item.price}</h5>
                   </div>
        `
-        )
+        );
     })
 }
 window.addEventListener("DOMContentLoaded", () => {
@@ -234,11 +227,46 @@ function FilterByCategory(category) {
                     <p>${item.productdetail}</p>
                 </div>
             </div>
-        `;
+        `
         }).join('');
     }
 }
-
+        async function Bookingdata(event) {
+            event.preventDefault()
+            let name = document.getElementById("bk-name").value
+            let email = document.getElementById("bk-email").value
+            let date = document.getElementById("bk-date").value
+            let number = document.getElementById("bk-number").value
+            let msg = document.getElementById("bk-msg").value
+            if (name && email && date && number && msg) {
+                try {
+                
+                    let apiurl = await fetch("https://restaurant-api-fxeb.onrender.com/booking", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            username: name,
+                            email: email,
+                            time: date,
+                            number: number,
+                            msg: msg
+                        })
+                    });
+                    const result = await apiurl.json()
+                    if (apiurl.ok) {
+                        alert(result.message)
+                    } else {
+                        alert(result.message)
+                    }
+                } catch (error) {
+                    alert("Error: " + error.message);
+                }
+            } else {
+                alert("Please fill complete data ");
+            }
+        }
 
 
 
