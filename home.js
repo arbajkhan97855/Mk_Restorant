@@ -15,7 +15,7 @@ function PARA() {
 let c = 1;
 function PARAR() {
     let demo = document.getElementById("sdd");//onpointermove event
-    if (c > 0 && c < 50) {
+    if (c > 0 && c < 20) {
         c++;
         demo.innerHTML = c
     } else {
@@ -30,38 +30,6 @@ function Menupage(e) {
     }, 1000)
 }
 // end
-// profile
-//  profile js
-function Profileout() {
-    const ap = document.getElementById("hs");
-    ap.style.display = "none";
-}
-
-async function Profilepage() {
-
-    const ap = document.getElementById("hs");
-    ap.style.display = "block";
-    let USER = localStorage.getItem("user");
-    let apiurl = await fetch(`https://restaurant-api-fxeb.onrender.com/user/${USER}`)
-    let convertapi = await apiurl.json();
-
-    let ad = document.getElementById("hp")
-    ad.innerHTML = `<div id="cs"><span>id : ${convertapi._id}</span><i class="fa-solid fa-x" onclick="Profileout()"></i></div>
-                            <img src="https://restaurant-api-fxeb.onrender.com/uploads/${convertapi.profileimg}" alt="loadiing.." height="100px" width="100px"><br>
-       <h5>Employer Name : ${convertapi.username}</h5>
-       <h6>Employer Email : ${convertapi.useremail}</h6>
-       <h6>Employer Number : ${convertapi.mobile}</h6>
-       <h6>Employer Password : ${convertapi.password}</h6>
-       <button onclick="Editjump()">Edit Profile</button>`
-
-}
-
-function Editjump() {
-    setTimeout(() => {
-        window.location.href = "./Edit.html";
-    }, 1000)
-}
-// profile js end
 
 let Product = [
     {
